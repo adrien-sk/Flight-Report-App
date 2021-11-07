@@ -8,7 +8,7 @@ import { Plane } from './Models/plane';
 })
 export class PlanesService {
     constructor(private http: HttpClient) {}
-    private apiUrl: string = 'https://localhost:44385/api/WeatherForecast';
+    private apiUrl: string = 'https://localhost:44385/api/v1/Plane';
 
     public getPlanes(): Observable<Plane[]> {
         return this.http.get<Plane[]>(this.apiUrl);

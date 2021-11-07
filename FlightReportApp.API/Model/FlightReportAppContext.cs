@@ -14,5 +14,8 @@ namespace FlightReportApp.API.Model
 		}
 
 		public DbSet<Plane> Planes { get; set; }
+		public DbSet<Airport> Airports { get; set; }
+		public DbSet<Flight> Flights { get; set; }
+		public DbSet<Report> Reports { get; set; }
 	}
 }
