@@ -1,0 +1,13 @@
+<p>dashboard works!</p>
+<p>
+    Hello <strong>{{ getUsername() }}</strong>
+</p>
+
+<div *ngFor="let plane of planes$ | async">
+    <ul>
+        <li>ID : {{ plane.id }}</li>
+        <li>Code : {{ plane.code }}</li>
+        <li>Color : {{ plane.color }}</li>
+        <li>First use date : {{ plane.first_use_date }}</li>
+    </ul>
+</div>
