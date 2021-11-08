@@ -12,26 +12,26 @@ namespace FlightReportApp.API.Controllers
 	[Route("api/v1/[controller]")]
 	public class ReportController : ControllerBase
 	{
-		private readonly FlightReportAppDbContext _flightReportAppContext;
+		private readonly FlightReportAppDbContext _flightReportAppDbContext;
 
 		private readonly ILogger<ReportController> _logger;
 
-		public ReportController(ILogger<ReportController> logger, FlightReportAppDbContext flightReportAppContext)
+		public ReportController(ILogger<ReportController> logger, FlightReportAppDbContext flightReportAppDbContext)
 		{
 			_logger = logger;
-			_flightReportAppContext = flightReportAppContext;
+			_flightReportAppDbContext = flightReportAppDbContext;
 		}
 
 		[HttpGet]
 		public ActionResult<IEnumerable<Report>> GetAllReports()
 		{
-			return Ok(_flightReportAppContext.Reports.ToList());
+			return Ok(_flightReportAppDbContext.Reports.ToList());
 		}
 
 		[HttpGet("{id}")]
 		public ActionResult<Report> GetReportById(int id)
 		{
-			var report = _flightReportAppContext.Reports.FirstOrDefault(x => x.Id == id);
+			var report = _flightReportAppDbContext.Reports.FirstOrDefault(x => x.Id == id);
 
 			if(report != null)
 			{

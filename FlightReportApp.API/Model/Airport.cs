@@ -18,6 +18,7 @@ namespace FlightReportApp.API.Model
 		[Column("country")]
 		public string Country { get; set; }
 
-		public List<Flight> Flights { get; set; }
+		public virtual ICollection<Flight> DepartureFlights { get; set; }
+		public virtual ICollection<Flight> ArrivalFlights { get; set; }
 	}
 }

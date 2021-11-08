@@ -12,6 +12,7 @@ namespace FlightReportApp.API.Model
 		public int ReporterId { get; set; }
 
 		[Column("flight_id")]
+		public int FlightId { get; set; }
 		public Flight Flight { get; set; }
 	}
 }

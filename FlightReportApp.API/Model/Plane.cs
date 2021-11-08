@@ -16,6 +16,6 @@ namespace FlightReportApp.API.Model
 		[Column("first_use_date")]
 		public DateTime? FirstUseDate { get; set; }
 
-		public List<Flight> Flights { get; set; }
+		public virtual ICollection<Flight> Flights { get; set; }
 	}
 }

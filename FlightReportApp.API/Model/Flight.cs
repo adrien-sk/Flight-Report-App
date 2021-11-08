@@ -12,7 +12,6 @@ namespace FlightReportApp.API.Model
 
 		[Column("plane_id")]
 		public int PlaneId { get; set; }
-
 		public Plane Plane { get; set; }
 
 		[Column("departure_location_id")]
@@ -29,6 +28,6 @@ namespace FlightReportApp.API.Model
 		[Column("arrival_date")]
 		public DateTime? ArrivalDate { get; set; }
 
-		public List<Report> Reports { get; set; }
+		public virtual ICollection<Report> Reports { get; set; }
 	}
 }

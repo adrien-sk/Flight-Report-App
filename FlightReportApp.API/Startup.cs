@@ -23,7 +23,7 @@ namespace FlightReportApp.API
 		{
 			services.AddControllers();
 
-			services.AddDbContext<FlightReportAppContext>(options => options.UseSqlServer(Configuration.GetConnectionString("flightReportAppContext")));
+			services.AddDbContext<FlightReportAppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("flightReportAppDbContext")));
 
 			services.AddCors();
 
