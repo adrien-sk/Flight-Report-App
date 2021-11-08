@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FlightReportApp.API.Model
@@ -12,10 +13,14 @@ namespace FlightReportApp.API.Model
 		[Column("plane_id")]
 		public int PlaneId { get; set; }
 
-		[Column("departure_location")]
+		public Plane Plane { get; set; }
+
+		[Column("departure_location_id")]
+		public int DepartureLocationId { get; set; }
 		public Airport DepartureLocation { get; set; }
 
-		[Column("arrival_location")]
+		[Column("arrival_location_id")]
+		public int ArrivalLocationId { get; set; }
 		public Airport ArrivalLocation { get; set; }
 
 		[Column("departure_date")]
@@ -23,5 +28,7 @@ namespace FlightReportApp.API.Model
 
 		[Column("arrival_date")]
 		public DateTime? ArrivalDate { get; set; }
+
+		public List<Report> Reports { get; set; }
 	}
 }

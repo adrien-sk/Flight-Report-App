@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FlightReportApp.API.Model
@@ -14,5 +15,7 @@ namespace FlightReportApp.API.Model
 
 		[Column("first_use_date")]
 		public DateTime? FirstUseDate { get; set; }
+
+		public List<Flight> Flights { get; set; }
 	}
 }

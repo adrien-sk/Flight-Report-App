@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FlightReportApp.API.Model
 {
@@ -16,5 +17,7 @@ namespace FlightReportApp.API.Model
 
 		[Column("country")]
 		public string Country { get; set; }
+
+		public List<Flight> Flights { get; set; }
 	}
 }
