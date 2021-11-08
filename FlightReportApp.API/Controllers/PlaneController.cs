@@ -12,11 +12,11 @@ namespace FlightReportApp.API.Controllers
 	[Route("api/v1/[controller]")]
 	public class PlaneController : ControllerBase
 	{
-		private readonly FlightReportAppContext _flightReportAppContext;
+		private readonly FlightReportAppDbContext _flightReportAppContext;
 
 		private readonly ILogger<PlaneController> _logger;
 
-		public PlaneController(ILogger<PlaneController> logger, FlightReportAppContext flightReportAppContext)
+		public PlaneController(ILogger<PlaneController> logger, FlightReportAppDbContext flightReportAppContext)
 		{
 			_logger = logger;
 			_flightReportAppContext = flightReportAppContext;

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FlightReportApp.API.Model
 {
-	public class FlightReportAppContext : DbContext
+	public class FlightReportAppDbContext : DbContext
 	{
-		public FlightReportAppContext(DbContextOptions<FlightReportAppContext> options)
+		public FlightReportAppDbContext(DbContextOptions<FlightReportAppDbContext> options)
 		: base(options)
 		{
 		}
