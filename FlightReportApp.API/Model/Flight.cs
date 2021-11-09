@@ -7,6 +7,21 @@ namespace FlightReportApp.API.Model
 	[Table("Flight")]
 	public class Flight
 	{
+		public Flight()
+		{
+
+		}
+
+		public Flight(int id, int planeId, int departureLocationId, int arrivalLocationId, DateTime departureDate, DateTime arrivalDate)
+		{
+			Id = id;
+			PlaneId = planeId;
+			DepartureLocationId = departureLocationId;
+			ArrivalLocationId = arrivalLocationId;
+			DepartureDate = departureDate;
+			ArrivalDate = arrivalDate;
+		}
+
 		[Column("id")]
 		public int Id { get; set; }
 

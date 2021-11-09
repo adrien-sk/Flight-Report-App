@@ -41,6 +41,8 @@ namespace FlightReportApp.API.Model
 				.HasOne(r => r.Flight)
 				.WithMany(r => r.Reports)
 				.HasForeignKey(r => r.FlightId);
+
+			modelBuilder.Seed();
 		}
 
 	}

@@ -6,6 +6,19 @@ namespace FlightReportApp.API.Model
 	[Table("Airport")]
 	public class Airport
 	{
+		public Airport()
+		{
+
+		}
+
+		public Airport(int id, string code, string name, string country)
+		{
+			Id = id;
+			Code = code;
+			Name = name;
+			Country = country;
+		}
+
 		[Column("id")]
 		public int Id { get; set; }
 

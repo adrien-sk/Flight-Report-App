@@ -7,6 +7,18 @@ namespace FlightReportApp.API.Model
 	[Table("Plane")]
 	public class Plane
 	{
+		public Plane()
+		{
+
+		}
+
+		public Plane(int id, string code, DateTime firstUseDate)
+		{
+			Id = id;
+			Code = code;
+			FirstUseDate = firstUseDate;
+		}
+
 		[Column("id")]
 		public int Id { get; set; }
 

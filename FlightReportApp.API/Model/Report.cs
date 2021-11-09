@@ -1,10 +1,22 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FlightReportApp.API.Model
 {
 	[Table("Report")]
 	public class Report
 	{
+		public Report()
+		{
+
+		}
+
+		public Report(int id, int reporterId, int flightId)
+		{
+			Id = id;
+			ReporterId = reporterId;
+			FlightId = flightId;
+		}
 		[Column("id")]
 		public int Id { get; set; }
 
