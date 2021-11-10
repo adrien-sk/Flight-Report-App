@@ -23,7 +23,7 @@ namespace FlightReportApp.API.Controllers
 		}
 
 		[HttpGet]
-		public ActionResult<IEnumerable<Flight>> GetAllFlights()
+		public ActionResult<IEnumerable<Flight>> GetFlights()
 		{
 			return Ok(_flightReportAppDbContext.Flights.ToList());
 		}
@@ -33,9 +33,56 @@ namespace FlightReportApp.API.Controllers
 		{
 			var flight = _flightReportAppDbContext.Flights.FirstOrDefault(x => x.Id == id);
 
-			if(flight != null)
+			if (flight != null)
 			{
 				return Ok(flight);
+			}
+
+			return NotFound();
+		}
+
+		[HttpPost]
+		public ActionResult<Flight> CreateAirport(Flight flight)
+		{
+
+			_flightReportAppDbContext.Flights.Add(flight);
+
+			if (_flightReportAppDbContext.SaveChanges() > 0)
+			{
+				return Ok(flight);
+			}
+
+			return BadRequest();
+		}
+
+		[HttpPut("{id}")]
+		public ActionResult<Flight> UpdateFlight(int id, Flight flight)
+		{
+			if (id != flight.Id)
+			{
+				return BadRequest();
+			}
+
+			var existingFlight = _flightReportAppDbContext.Flights.FirstOrDefault(x => x.Id == id);
+			if (existingFlight == null)
+			{
+				return NotFound();
+			}
+
+			_flightReportAppDbContext.Flights.Update(flight);
+
+			return Ok(flight);
+		}
+
+		[HttpDelete("{id}")]
+		public ActionResult DeleteFlight(int id)
+		{
+			var flight = _flightReportAppDbContext.Flights.FirstOrDefault(x => x.Id == id);
+
+			if (flight != null)
+			{
+				_flightReportAppDbContext.Flights.Remove(flight);
+				return Ok();
 			}
 
 			return NotFound();
