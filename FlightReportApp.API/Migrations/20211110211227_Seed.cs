@@ -3,13 +3,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FlightReportApp.API.Migrations
 {
-    public partial class SeedData : Migration
+    public partial class Seed : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.InsertData(
                 table: "Airport",
-                columns: new[] { "id", "code", "country", "name" },
+                columns: new[] { "Id", "Code", "Country", "Name" },
                 values: new object[,]
                 {
                     { 1, "HND", "Japan", "Tokyo Haneda Airport" },
@@ -19,7 +19,7 @@ namespace FlightReportApp.API.Migrations
 
             migrationBuilder.InsertData(
                 table: "Plane",
-                columns: new[] { "id", "code", "first_use_date" },
+                columns: new[] { "Id", "Code", "FirstUseDate" },
                 values: new object[,]
                 {
                     { 1, "H520", new DateTime(2005, 5, 13, 9, 0, 0, 0, DateTimeKind.Unspecified) },
@@ -29,7 +29,7 @@ namespace FlightReportApp.API.Migrations
 
             migrationBuilder.InsertData(
                 table: "Flight",
-                columns: new[] { "id", "arrival_date", "arrival_location_id", "departure_date", "departure_location_id", "plane_id" },
+                columns: new[] { "Id", "ArrivalDate", "ArrivalLocationId", "DepartureDate", "DepartureLocationId", "PlaneId" },
                 values: new object[,]
                 {
                     { 1, new DateTime(2019, 5, 22, 13, 40, 0, 0, DateTimeKind.Unspecified), 2, new DateTime(2019, 5, 22, 8, 30, 0, 0, DateTimeKind.Unspecified), 1, 1 },
@@ -44,57 +44,57 @@ namespace FlightReportApp.API.Migrations
         {
             migrationBuilder.DeleteData(
                 table: "Flight",
-                keyColumn: "id",
+                keyColumn: "Id",
                 keyValue: 1);
 
             migrationBuilder.DeleteData(
                 table: "Flight",
-                keyColumn: "id",
+                keyColumn: "Id",
                 keyValue: 2);
 
             migrationBuilder.DeleteData(
                 table: "Flight",
-                keyColumn: "id",
+                keyColumn: "Id",
                 keyValue: 3);
 
             migrationBuilder.DeleteData(
                 table: "Flight",
-                keyColumn: "id",
+                keyColumn: "Id",
                 keyValue: 4);
 
             migrationBuilder.DeleteData(
                 table: "Flight",
-                keyColumn: "id",
+                keyColumn: "Id",
                 keyValue: 5);
 
             migrationBuilder.DeleteData(
                 table: "Airport",
-                keyColumn: "id",
+                keyColumn: "Id",
                 keyValue: 1);
 
             migrationBuilder.DeleteData(
                 table: "Airport",
-                keyColumn: "id",
+                keyColumn: "Id",
                 keyValue: 2);
 
             migrationBuilder.DeleteData(
                 table: "Airport",
-                keyColumn: "id",
+                keyColumn: "Id",
                 keyValue: 3);
 
             migrationBuilder.DeleteData(
                 table: "Plane",
-                keyColumn: "id",
+                keyColumn: "Id",
                 keyValue: 1);
 
             migrationBuilder.DeleteData(
                 table: "Plane",
-                keyColumn: "id",
+                keyColumn: "Id",
                 keyValue: 2);
 
             migrationBuilder.DeleteData(
                 table: "Plane",
-                keyColumn: "id",
+                keyColumn: "Id",
                 keyValue: 3);
         }
     }

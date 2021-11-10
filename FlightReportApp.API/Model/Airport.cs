@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace FlightReportApp.API.Model
 {
@@ -8,7 +9,8 @@ namespace FlightReportApp.API.Model
 	{
 		public Airport()
 		{
-
+			DepartureFlights = new HashSet<Flight>();
+			ArrivalFlights = new HashSet<Flight>();
 		}
 
 		public Airport(int id, string code, string name, string country)
@@ -19,19 +21,14 @@ namespace FlightReportApp.API.Model
 			Country = country;
 		}
 
-		[Column("id")]
 		public int Id { get; set; }
-
-		[Column("code")]
 		public string Code { get; set; }
-
-		[Column("name")]
 		public string Name { get; set; }
-
-		[Column("country")]
 		public string Country { get; set; }
 
+		[JsonIgnore]
 		public virtual ICollection<Flight> DepartureFlights { get; set; }
+		[JsonIgnore]
 		public virtual ICollection<Flight> ArrivalFlights { get; set; }
 	}
 }

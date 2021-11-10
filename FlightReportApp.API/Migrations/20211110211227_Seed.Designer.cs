@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FlightReportApp.API.Migrations
 {
     [DbContext(typeof(FlightReportAppDbContext))]
-    [Migration("20211109192805_SeedData")]
-    partial class SeedData
+    [Migration("20211110211227_Seed")]
+    partial class Seed
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,20 +26,16 @@ namespace FlightReportApp.API.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("id")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Code")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("code");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Country")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("country");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("name");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -74,28 +70,22 @@ namespace FlightReportApp.API.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("id")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime?>("ArrivalDate")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("arrival_date");
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("ArrivalLocationId")
-                        .HasColumnType("int")
-                        .HasColumnName("arrival_location_id");
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("DepartureDate")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("departure_date");
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("DepartureLocationId")
-                        .HasColumnType("int")
-                        .HasColumnName("departure_location_id");
+                        .HasColumnType("int");
 
                     b.Property<int>("PlaneId")
-                        .HasColumnType("int")
-                        .HasColumnName("plane_id");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -160,16 +150,13 @@ namespace FlightReportApp.API.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("id")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Code")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("code");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("FirstUseDate")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("first_use_date");
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -201,16 +188,16 @@ namespace FlightReportApp.API.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("id")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("FlightId")
-                        .HasColumnType("int")
-                        .HasColumnName("flight_id");
+                        .HasColumnType("int");
 
                     b.Property<int>("ReporterId")
-                        .HasColumnType("int")
-                        .HasColumnName("reporter_id");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

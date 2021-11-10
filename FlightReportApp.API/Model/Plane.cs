@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace FlightReportApp.API.Model
 {
@@ -9,7 +10,7 @@ namespace FlightReportApp.API.Model
 	{
 		public Plane()
 		{
-
+			Flights = new HashSet<Flight>();
 		}
 
 		public Plane(int id, string code, DateTime firstUseDate)
@@ -19,15 +20,11 @@ namespace FlightReportApp.API.Model
 			FirstUseDate = firstUseDate;
 		}
 
-		[Column("id")]
 		public int Id { get; set; }
-
-		[Column("code")]
 		public string Code { get; set; }
-
-		[Column("first_use_date")]
 		public DateTime? FirstUseDate { get; set; }
 
+		[JsonIgnore]
 		public virtual ICollection<Flight> Flights { get; set; }
 	}
 }

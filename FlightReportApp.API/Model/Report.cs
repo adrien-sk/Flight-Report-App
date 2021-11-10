@@ -11,20 +11,18 @@ namespace FlightReportApp.API.Model
 
 		}
 
-		public Report(int id, int reporterId, int flightId)
+		public Report(int id, int reporterId, int flightId, string description)
 		{
 			Id = id;
 			ReporterId = reporterId;
 			FlightId = flightId;
+			Description = description;
 		}
-		[Column("id")]
+
 		public int Id { get; set; }
-
-		[Column("reporter_id")]
 		public int ReporterId { get; set; }
-
-		[Column("flight_id")]
 		public int FlightId { get; set; }
 		public Flight Flight { get; set; }
+		public string Description { get; set; }
 	}
 }
