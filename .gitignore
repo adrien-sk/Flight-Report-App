@@ -2,6 +2,8 @@
 # -------
 
 .angular/
+FlightReportApp/src/environments/*
+!FlightReportApp/src/environments/*.schema.ts
 
 # compiled output
 dist/

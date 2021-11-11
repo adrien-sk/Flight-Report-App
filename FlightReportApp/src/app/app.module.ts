@@ -13,14 +13,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { AddEditReportComponent } from './add-edit-report/add-edit-report.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { environment } from '../environments/environment';
 
 export function MSALInstanceFactory(): IPublicClientApplication {
     return new PublicClientApplication({
         auth: {
-            clientId: '369971f2-92d1-454b-9684-edd0e2fa4749',
-            authority:
-                'https://login.microsoftonline.com/fd755ac7-b319-4998-84e0-a4605afd4ef0',
-            redirectUri: 'http://localhost:4200/',
+            clientId: environment.auth.clientId,
+            authority: environment.auth.authority,
+            redirectUri: environment.auth.redirectUri,
         },
     });
 }
