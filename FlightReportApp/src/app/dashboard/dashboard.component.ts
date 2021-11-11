@@ -14,7 +14,8 @@ import { ReportsService } from '../services/reports.service';
 export class DashboardComponent implements OnInit {
     public reports$!: Observable<Report[]>;
 
-    /*public planes: Plane[] = [];
+    /* example
+    public planes: Plane[] = [];
     public subscriptions = new Subscription();*/
 
     constructor(
@@ -25,7 +26,8 @@ export class DashboardComponent implements OnInit {
     ngOnInit(): void {
         this.reports$ = this.reportService.getReports();
 
-        /*this.subscriptions.add(
+        /* example
+        this.subscriptions.add(
             this.planeService.getPlanes().subscribe((value) => {
                 this.planes = value;
             })
@@ -35,7 +37,8 @@ export class DashboardComponent implements OnInit {
     getUsername(): string {
         return this.msalService.instance.getActiveAccount()?.name!;
     }
-    /*
+
+    /* example
     ngOnDestroy(): void {
         this.subscriptions.unsubscribe();
     }*/

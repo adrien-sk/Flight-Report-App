@@ -1,5 +1,5 @@
-export interface Plane {
-    id: number;
-    code: string;
-    first_use_date: Date;
+export class Plane {
+    public id: number = 0;
+    public code: string = '';
+    public firstUseDate: Date = new Date();
 }

@@ -1,6 +1,6 @@
 <h3>Add new report</h3>
 <form [formGroup]="reportForm" (ngSubmit)="saveReport()">
-    <p>{{ report.id }}</p>
+    <p>Report ID : {{ report.id }}</p>
     <div>
         <label for="reporterId">Reporter</label>
         <input type="text" formControlName="reporterId" />
