@@ -69,9 +69,14 @@ namespace FlightReportApp.API.Controllers
 				return NotFound();
 			}
 
-			_flightReportAppDbContext.Reports.Update(report);
+			existingReport.FlightId = report.FlightId;
+			existingReport.ReporterId = report.ReporterId;
+			existingReport.Description = report.Description;
 
-			return Ok(report);
+			_flightReportAppDbContext.Reports.Update(existingReport);
+			_flightReportAppDbContext.SaveChanges();
+
+			return Ok(existingReport);
 		}
 
 		[HttpDelete("{id}")]
