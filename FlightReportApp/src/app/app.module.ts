@@ -11,6 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { AddEditReportComponent } from './add-edit-report/add-edit-report.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 export function MSALInstanceFactory(): IPublicClientApplication {
     return new PublicClientApplication({
@@ -24,8 +26,19 @@ export function MSALInstanceFactory(): IPublicClientApplication {
 }
 
 @NgModule({
-    declarations: [AppComponent, DashboardComponent, HomepageComponent],
-    imports: [BrowserModule, AppRoutingModule, MsalModule, HttpClientModule],
+    declarations: [
+        AppComponent,
+        DashboardComponent,
+        HomepageComponent,
+        AddEditReportComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        MsalModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+    ],
     providers: [
         {
             provide: MSAL_INSTANCE,

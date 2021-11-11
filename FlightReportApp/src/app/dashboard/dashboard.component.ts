@@ -1,27 +1,31 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MsalService } from '@azure/msal-angular';
 import { Observable, of, Subscription } from 'rxjs';
-import { Plane } from '../Models/plane';
-import { PlanesService } from '../planes.service';
+import { Airport } from '../models/airport';
+import { Plane } from '../models/plane';
+import { Report } from '../models/report';
+import { ReportsService } from '../services/reports.service';
 
 @Component({
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
     styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent implements OnInit, OnDestroy {
-    public planes$: Observable<Plane[]> = this.planeService.getPlanes();
+export class DashboardComponent implements OnInit {
+    public reports$!: Observable<Report[]>;
 
-    /*public planes!: Plane[];
-    public subscribers: Subscription[] = [];*/
+    /*public planes: Plane[] = [];
+    public subscriptions = new Subscription();*/
 
     constructor(
         private msalService: MsalService,
-        private planeService: PlanesService
+        private reportService: ReportsService
     ) {}
 
     ngOnInit(): void {
-        /*this.subscribers.push(
+        this.reports$ = this.reportService.getReports();
+
+        /*this.subscriptions.add(
             this.planeService.getPlanes().subscribe((value) => {
                 this.planes = value;
             })
@@ -31,8 +35,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
     getUsername(): string {
         return this.msalService.instance.getActiveAccount()?.name!;
     }
-
+    /*
     ngOnDestroy(): void {
-        //this.subscribers.map((x) => x.unsubscribe());
-    }
+        this.subscriptions.unsubscribe();
+    }*/
 }

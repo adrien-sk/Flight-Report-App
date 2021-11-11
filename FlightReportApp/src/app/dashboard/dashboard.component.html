@@ -1,12 +1,15 @@
-<p>dashboard works!</p>
 <p>
     Hello <strong>{{ getUsername() }}</strong>
 </p>
-
-<div *ngFor="let plane of planes$ | async">
+<div *ngFor="let report of reports$ | async">
     <ul>
-        <li>ID : {{ plane.id }}</li>
-        <li>Code : {{ plane.code }}</li>
-        <li>First use date : {{ plane.first_use_date }}</li>
+        <li>ID : {{ report.id }}</li>
+        <li>Reporter Id: {{ report.reporterId }}</li>
+        <li>Flight Id : {{ report.flightId }}</li>
+        <li>description : {{ report.description }}</li>
     </ul>
+
+    <button [routerLink]="['add-report', report.id]">Edit Report</button>
 </div>
+<hr />
+<button [routerLink]="['add-report']">Add Report</button>
