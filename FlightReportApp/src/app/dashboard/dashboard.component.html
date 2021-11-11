@@ -9,7 +9,8 @@
         <li>description : {{ report.description }}</li>
     </ul>
 
-    <button [routerLink]="['add-report', report.id]">Edit Report</button>
+    <button [routerLink]="['add-report', report.id]">Edit</button>
+    <button (click)="deleteReport(report.id)">Delete</button>
+    <hr />
 </div>
-<hr />
 <button [routerLink]="['add-report']">Add Report</button>

@@ -11,12 +11,12 @@ import { ReportsService } from '../services/reports.service';
     templateUrl: './dashboard.component.html',
     styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
     public reports$!: Observable<Report[]>;
+    private subscriptions = new Subscription();
 
     /* example
-    public planes: Plane[] = [];
-    public subscriptions = new Subscription();*/
+    public planes: Plane[] = [];*/
 
     constructor(
         private msalService: MsalService,
@@ -25,21 +25,23 @@ export class DashboardComponent implements OnInit {
 
     ngOnInit(): void {
         this.reports$ = this.reportService.getReports();
-
-        /* example
-        this.subscriptions.add(
-            this.planeService.getPlanes().subscribe((value) => {
-                this.planes = value;
-            })
-        );*/
     }
 
     getUsername(): string {
         return this.msalService.instance.getActiveAccount()?.name!;
     }
 
-    /* example
+    deleteReport(id: number) {
+        if (confirm('Are you sure you want to delete this report ?')) {
+            this.subscriptions.add(
+                this.reportService.deleteReport(id).subscribe((value) => {
+                    this.reports$ = this.reportService.getReports();
+                })
+            );
+        }
+    }
+
     ngOnDestroy(): void {
         this.subscriptions.unsubscribe();
-    }*/
+    }
 }

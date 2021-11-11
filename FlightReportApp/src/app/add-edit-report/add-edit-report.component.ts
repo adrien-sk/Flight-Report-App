@@ -74,6 +74,6 @@ export class AddEditReportComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy(): void {
-        if (this.subscriptions) this.subscriptions.unsubscribe();
+        this.subscriptions.unsubscribe();
     }
 }

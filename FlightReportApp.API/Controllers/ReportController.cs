@@ -87,6 +87,7 @@ namespace FlightReportApp.API.Controllers
 			if (report != null)
 			{
 				_flightReportAppDbContext.Reports.Remove(report);
+				_flightReportAppDbContext.SaveChanges();
 				return Ok();
 			}
 

@@ -26,4 +26,8 @@ export class ReportsService {
     public updateReport(report: Report): Observable<Report> {
         return this.http.put<Report>(this.apiUrl + '/' + report.id, report);
     }
+
+    public deleteReport(id: number): Observable<any> {
+        return this.http.delete(this.apiUrl + '/' + id);
+    }
 }
